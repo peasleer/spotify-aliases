@@ -1,0 +1,29 @@
+#
+# Bash aliases to control Spotify from the command line.
+# Tested on Ubuntu 12.04/14.04 LTS releases in bash only.
+#
+
+DBUS_PREFIX="dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2"
+DBUS_COMMAND_PREFIX="org.mpris.MediaPlayer2.Player"
+COMBINED_PREFIX="$DBUS_PREFIX $DBUS_COMMAND_PREFIX"
+SUFFIX="> /dev/null 2>&1; __spotify_alias_check_status"
+
+
+NOT_RUNNING="Spotify is not running."
+
+__spotify_alias_check_status() 
+{
+    STATUS=$?
+    if [ $STATUS -ne 0 ]; then
+        echo $NOT_RUNNING
+    fi
+    return $STATUS
+}
+
+alias spotify-play="${COMBINED_PREFIX}.PlayPause ${SUFFIX}"
+alias spotify-pause="${COMBINED_PREFIX}.PlayPause ${SUFFIX}"
+alias spotify-stop="${COMBINED_PREFIX}.Stop ${SUFFIX}"
+alias spotify-next="${COMBINED_PREFIX}.Next ${SUFFIX}"
+alias spotify-prev="${COMBINED_PREFIX}.Previous;${COMBINED_PREFIX}.Previous ${SUFFIX}"
+alias spotify-replay="${COMBINED_PREFIX}.Previous ${SUFFIX}"
+
