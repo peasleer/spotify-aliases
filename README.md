@@ -13,15 +13,14 @@ adds a snippet to auto-load the file to your bashrc.
 
 The following aliases are provided and do what they say:
 
-spotify-next
-spotify-prev
-spotify-replay
-spotify-play
-spotify-pause
-spotify-stop
+- spotify-play
+- spotify-pause
+- spotify-stop
+- spotify-next
+- spotify-prev
+- spotify-replay
 
 
 This idea is based on a blog post by Fran Dieguez exploring Spotify's DBUS 
-interface:
-  mabishu.com/blog/2010/11/15/playing-with-d-bus-interface-of-spotify-for-linux
+interface: [Franz Dieguez - mabishu.com](http://www.mabishu.com/blog/2010/11/15/playing-with-d-bus-interface-of-spotify-for-linux)
 
